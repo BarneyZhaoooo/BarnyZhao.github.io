@@ -87,23 +87,17 @@
 
 
 
-<meta name="description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片
-
-我们为什么需要引用计数ARC模式下，在同一个函数内，我们通常不需要手动处理引用计数，此时的使用场景比较简单。引">
+<meta name="description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 内存管理 引用计数">
 <meta property="og:url" content="http://yoursite.com/2017/12/21/iOS-内存管理-引用计数/index.html">
 <meta property="og:site_name" content="BarneyZhaoooo">
-<meta property="og:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片
-
-我们为什么需要引用计数ARC模式下，在同一个函数内，我们通常不需要手动处理引用计数，此时的使用场景比较简单。引">
+<meta property="og:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg">
-<meta property="og:updated_time" content="2017-12-21T11:32:51.541Z">
+<meta property="og:updated_time" content="2017-12-21T11:40:46.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 内存管理 引用计数">
-<meta name="twitter:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片
-
-我们为什么需要引用计数ARC模式下，在同一个函数内，我们通常不需要手动处理引用计数，此时的使用场景比较简单。引">
+<meta name="twitter:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
 <meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg">
 
 
@@ -351,8 +345,12 @@
 
       
         <blockquote>
-<p>引用计数基本概念<br>当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。<br><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg" alt=""><br>引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片</p>
+<p>引用计数基本概念<br>当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg" alt=""><br>引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片</p>
 <hr>
+<blockquote>
 <p>我们为什么需要引用计数<br>ARC模式下，在同一个函数内，我们通常不需要手动处理引用计数，此时的使用场景比较简单。引用计数真正发挥作用的场景在面向对象的程序设计架构中，用于对象之间的传递和共享数据。</p>
 </blockquote>
 <p>例如：对象A生成对象M，调用对象B的一个方法将M作为参数传递。根据（谁申请谁释放）原则，应该由A在B不需要M的时候来销毁它。<br>那么问题来了，B何时才不需要M是不确定的。</p>
