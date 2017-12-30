@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
+<meta name="description" content="Method One123456789101112131415161718192021- (UILabel *)strikeLalbe &amp;#123;if (_strikeLalbe == nil) &amp;#123;_strikeLalbe = [[UILabel alloc] init];[_strikeLalbe setFont:SYSFONT(12.0f)];[_strikeLalbe setTe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 内存管理 引用计数">
-<meta property="og:url" content="http://yoursite.com/2017/12/21/iOS-内存管理-引用计数/index.html">
+<meta property="og:title" content=" UILabel 的删除线 strikeLable">
+<meta property="og:url" content="http://yoursite.com/2017/12/30/UILabel-的删除线-strikeLable/index.html">
 <meta property="og:site_name" content="BarneyZhaoooo">
-<meta property="og:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg">
-<meta property="og:updated_time" content="2017-12-21T11:40:46.209Z">
+<meta property="og:description" content="Method One123456789101112131415161718192021- (UILabel *)strikeLalbe &amp;#123;if (_strikeLalbe == nil) &amp;#123;_strikeLalbe = [[UILabel alloc] init];[_strikeLalbe setFont:SYSFONT(12.0f)];[_strikeLalbe setTe">
+<meta property="og:updated_time" content="2017-12-30T02:33:57.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 内存管理 引用计数">
-<meta name="twitter:description" content="引用计数基本概念当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。">
-<meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg">
+<meta name="twitter:title" content=" UILabel 的删除线 strikeLable">
+<meta name="twitter:description" content="Method One123456789101112131415161718192021- (UILabel *)strikeLalbe &amp;#123;if (_strikeLalbe == nil) &amp;#123;_strikeLalbe = [[UILabel alloc] init];[_strikeLalbe setFont:SYSFONT(12.0f)];[_strikeLalbe setTe">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/21/iOS-内存管理-引用计数/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/30/UILabel-的删除线-strikeLable/"/>
 
 
 
 
 
-  <title>iOS 内存管理 引用计数 | BarneyZhaoooo</title>
+  <title> UILabel 的删除线 strikeLable | BarneyZhaoooo</title>
   
 
 
@@ -263,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/iOS-内存管理-引用计数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/UILabel-的删除线-strikeLable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BarneyZhaoooo">
@@ -280,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS 内存管理 引用计数</h1>
+          <h1 class="post-title" itemprop="name headline"> UILabel 的删除线 strikeLable</h1>
         
 
         <div class="post-meta">
@@ -292,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T19:31:14+08:00">
-                2017-12-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-30T10:33:07+08:00">
+                2017-12-30
               </time>
             
 
@@ -330,34 +328,8 @@
       
 
       
-        <blockquote>
-<p>引用计数基本概念<br>当创建一个新对象的时候，引用计数加1，当某个指针不再指向这个对象时，引用计数减1，当对象的引用计数为0时，系统自动将对象销毁，回收内存。</p>
-</blockquote>
-<a id="more"></a>
-<p><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fdfai1rx7jj30ok0fktbr.jpg" alt=""><br>引用《Pro Multithreading and Memory Management ￼for iOS and OS X》中的图片</p>
-<hr>
-<blockquote>
-<p>我们为什么需要引用计数<br>ARC模式下，在同一个函数内，我们通常不需要手动处理引用计数，此时的使用场景比较简单。引用计数真正发挥作用的场景在面向对象的程序设计架构中，用于对象之间的传递和共享数据。</p>
-</blockquote>
-<p>例如：对象A生成对象M，调用对象B的一个方法将M作为参数传递。根据（谁申请谁释放）原则，应该由A在B不需要M的时候来销毁它。<br>那么问题来了，B何时才不需要M是不确定的。</p>
-<p>Method 1：非常暴力的在A调用完对象B之后立刻销毁对象M，那么对象B就很懵逼的需要将参数另外复制一份M2，自己来管理对象M2的生命周期。<br>这样有一个很大的问题：大量的内存申请，复制，释放操作，实在太影响性能。<br>Method 2：使用引用计数，哪些对象需要长时间使用M，就把它的引用计数加1，用完之后再把引用计数减1，所有对象都遵循这个原则，生命周期管理的重任就交给引用计数了。</p>
-<blockquote>
-<p>不要向已经释放的对象发送消息<br>手动release一个对象，打印其引用计数为什么不是0？<br>理论上说，一个被release的对象的引用计数值是不确定的，而且如果该对象所占有的内存已经被复用，那么打印其引用计数值程序可能会异常崩溃。</p>
-</blockquote>
-<p>当系统确定一个对象要被release后，就没有必要对它进行引用计数减1了。因为肯定会被回收，回收后，它所拥有的内存区域，包括retainCount值都变得没有意义。<br>不进行减1可以减少内存操作，加速对象回收。</p>
-<blockquote>
-<p>Perfect But 问题又来了<br>reference cycles 循环引用<br>这也是ARC的一个痛点，对象A与对象B如果互相持有，就会造成循环引用，即使没有任何指针访问它们，也不会被释放。这样的情况也多发生在多个对象互相持有，block的使用 NSTimer等。<br>Method 1：明确会造成循环引用的位置，主动断开其中一环。<br>Method 2：使用weak reference（弱引用）<br>持有对象，但不增加引用计数，避免循环应用的产生。比如delegate通常是弱引用的。</p>
-<p>block<br>在block中的循环引用一般会被编译器所提醒，但并不是使用到self才会造成循环引用，只要用到self所拥有的东西都会。需要使用其它指针来避免block对自身强引用，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">__weak typeof(self) weakSelf = self;</div><div class="line">self.blkA = ^&#123;</div><div class="line">__strong typeof(weakSelf) strongSelf = weakSelf;//加一下强引用，避免weakSelf被释放掉</div><div class="line">NSLog(@&quot;%@&quot;, strongSelf-&gt;_xxView); //不会导致循环引用.</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>这是针对ARC的方式，MRC下要用<code>__block</code></p>
-<p>通常情况下，GCD 中的block并不会出现针对self循环引用的情况，因为self并没有对GCD中的block进行持有。</p>
-<blockquote>
-<p>参考资料</p>
-<ul>
-<li>《iOS 开发进阶》 唐巧</li>
-<li><a href="http://www.jianshu.com/p/492be28d63c4" target="_blank" rel="external">iOS中block的循环引用问题 - 简书</a></li>
-</ul>
-</blockquote>
+        <h2 id="Method-One"><a href="#Method-One" class="headerlink" title="Method One"></a>Method One</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (UILabel *)strikeLalbe &#123;</div><div class="line">if (_strikeLalbe == nil) &#123;</div><div class="line">_strikeLalbe = [[UILabel alloc] init];</div><div class="line">[_strikeLalbe setFont:SYSFONT(12.0f)];</div><div class="line">[_strikeLalbe setTextColor:AYCOLOR_SUBTITLE];</div><div class="line">[_strikeLalbe setTextAlignment:NSTextAlignmentRight];</div><div class="line">[_strikeLalbe setText:@&quot;8&quot;];</div><div class="line"></div><div class="line">NSUInteger length = [_strikeLalbe.text length];</div><div class="line">NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:_strikeLalbe.text];</div><div class="line">[attri addAttribute:NSStrikethroughStyleAttributeName</div><div class="line">value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle)</div><div class="line">range:NSMakeRange(0, length)];</div><div class="line">[attri addAttribute:NSStrikethroughColorAttributeName</div><div class="line">value:AYCOLOR_SUBTITLE</div><div class="line">range:NSMakeRange(0, length)];</div><div class="line">[_strikeLalbe setAttributedText:attri];</div><div class="line">&#125;</div><div class="line"></div><div class="line">return _strikeLalbe;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Method-Two"><a href="#Method-Two" class="headerlink" title="Method Two"></a>Method Two</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">- (id)initWithFrame:(CGRect)frame &#123;</div><div class="line">self = [super initWithFrame:frame];</div><div class="line">if (self) &#123;</div><div class="line">self.strikeThroughEnabled = YES;</div><div class="line">&#125;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)drawTextInRect:(CGRect)rect &#123;</div><div class="line">[super drawTextInRect:rect];</div><div class="line"></div><div class="line">CGSize textSize = [[self text] sizeWithFont:[self font]];</div><div class="line">CGFloat strikeWidth = textSize.width;</div><div class="line">CGRect lineRect;</div><div class="line"></div><div class="line">if ([self textAlignment] == NSTextAlignmentRight) &#123;</div><div class="line">lineRect = CGRectMake(rect.size.width - strikeWidth,</div><div class="line">rect.size.height/2,</div><div class="line">strikeWidth,</div><div class="line">1);</div><div class="line">&#125;else if ([self textAlignment] == NSTextAlignmentCenter) &#123;</div><div class="line">lineRect = CGRectMake(rect.size.width/2 - strikeWidth/2,</div><div class="line">rect.size.height/2,</div><div class="line">strikeWidth,</div><div class="line">1);</div><div class="line">&#125;else &#123;</div><div class="line">lineRect = CGRectMake(0,</div><div class="line">rect.size.height/2,</div><div class="line">strikeWidth,</div><div class="line">1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (self.strikeThroughEnabled) &#123;</div><div class="line">CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">CGContextSetFillColorWithColor(context,</div><div class="line">[self strikeThroughColor].CGColor);</div><div class="line">CGContextFillRect(context,</div><div class="line">lineRect);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -382,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/31/Property list 文件缓存/" rel="next" title="plist 文件存储">
-                <i class="fa fa-chevron-left"></i> plist 文件存储
+              <a href="/2017/12/28/封装一个小星星评分-View/" rel="next" title="封装一个小星星评分 View">
+                <i class="fa fa-chevron-left"></i> 封装一个小星星评分 View
               </a>
             
           </div>
@@ -391,10 +363,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/28/封装一个小星星评分-View/" rel="prev" title="封装一个小星星评分 View">
-                封装一个小星星评分 View <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,8 +414,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -500,6 +477,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-One"><span class="nav-number">1.</span> <span class="nav-text">Method One</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-Two"><span class="nav-number">2.</span> <span class="nav-text">Method Two</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
